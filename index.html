@@ -4,7 +4,7 @@
     <meta charset="UTF-8" /> 
     <title>Vue Template</title> 
     <!-- Import Styles --> 
-     <link rel="stylesheet" href="./css/styles.css" /> 
+     <link rel="stylesheet" href="./css/style.css" /> 
      <!-- Import Vue.js --> 
       <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
     </head> 
@@ -12,7 +12,22 @@
         <div id="app"> 
             <div class="nav-bar"></div> 
             <h1>{{ intro }}</h1> 
+
+            
+
+            <button v-on:click="getAllActors">Get Actors</button>
+
+            <ul v-if="actorList != []">
+                <li v-for="actor in actorList">
+                    <p>Id: {{ actor.id }}</p>
+                    <p>Navn: {{ actor.name }}</p>
+                    <p>BirthYear: {{ actor.birthYear }}</p>
+                    
+
+                </li>
+            </ul>
         </div>
+        
 <!-- Import App --> 
  <script src="./js/main.js"></script> 
  
@@ -20,5 +35,6 @@
   <script> 
   const mountedApp = app.mount('#app') 
   </script> 
+  <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
   </body> 
   </html>
